@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: cryptosense-ai
+    runtime: docker
+    plan: starter
+    healthCheckPath: /health
+    envVars:
+      - key: ENABLE_CSV_UPLOADS
+        value: "false"
+    disk:
+      name: cryptosense-data
+      mountPath: /app/data
+      sizeGB: 1
